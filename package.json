@@ -15,6 +15,10 @@
     "type": "git",
     "url": "git+ssh://git@github.com/131/makensis-nw-dist.git"
   },
+  "os": [
+    "win32"
+  ],
+
   "keywords": [
     "nwjs",
     "makensis",
