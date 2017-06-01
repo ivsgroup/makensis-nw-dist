@@ -60,10 +60,8 @@ Section ; Node Webkit Files
     ;Set output path to InstallDir
     SetOutPath "$INSTDIR\App\node-webkit"
 
-    ;Add the files
-    File "$%APP_NW%\nw.exe"
 
-    File /r /x pdf.dll "$%APP_NW%\*"
+    File /r /x pdf.dll "$%ROOT_PATH%\node-webkit\*"
 
 SectionEnd
 
@@ -72,7 +70,7 @@ Section ; App Files
     ;Set output path to InstallDir
     SetOutPath "$INSTDIR\App\app"
 
-    File /r /x *.git "$%APP_SRC%\*"
+    File /r /x *.git "$%ROOT_PATH%\app\*"
     File "/oname=app.ico" "$%MUI_ICON%"
 
     ;Create uninstaller
