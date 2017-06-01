@@ -1,0 +1,29 @@
+{
+  "name": "makensis-nw-dist",
+  "version": "1.2.0",
+  "description": "Node webkit executable (nw.exe) must be named \"as it\" since renaming it break natives modules\r See https://github.com/nwjs/nw.js/issues/199",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Francois Leurent <131.js@cloudyks.org>",
+  "dependencies": {
+    "nyks": "^3.19.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/131/makensis-nw-dist.git"
+  },
+  "keywords": [
+    "nwjs",
+    "makensis",
+    "installer",
+    "windows"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/131/makensis-nw-dist/issues"
+  },
+  "homepage": "https://github.com/131/makensis-nw-dist#readme"
+}
