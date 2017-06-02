@@ -13,3 +13,27 @@ Node webkit executable (nw.exe) must be named "as it" since renaming it break na
 See https://github.com/nwjs/nw.js/issues/199
 
 
+
+
+# API
+
+```
+    process.env.OUTFILE = grunt.config('setup_path');
+    var done = this.async();
+
+    var root_path = "release";
+      release/app/package.json (your nw app)
+      release/app/node-webkit/nw.exe  (your nw exe path - see [nwjs-binaries](https://www.npmjs.com/package/nwjs-binaries) )
+
+    makensis(root_path, { 
+      MUI_ICON : path.join(root_path, "app/skin/logo.ico"),
+      MUI_UI_HEADERIMAGE_RIGHT : path.join(root_path, "app/skin/logo_256.png"),
+      MUI_WELCOMEFINISHPAGE_BITMAP : path.join(root_path, "app/skin/installer-image.bmp"),
+      MUI_PAGE_LICENSE : path.join(root_path, "app/LICENSE"),
+    }, done);
+```
+
+
+# Credits
+* [131](https://github.com/131)
+
