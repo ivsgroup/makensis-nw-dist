@@ -32,7 +32,7 @@ module.exports = function(root_path, skin, chain){
 
     Object.assign(env, skin);
 
-    env.OUTFILE = process.env.OUTFILE || util.format("%s/%s-%s-Setup.exe", wd, pack.name, pack.version);
+    env.OUTFILE = process.env.OUTFILE || util.format("%s/%s-%s-Setup.exe", root_path, pack.name, pack.version);
         //generate this BMP 24b with paint (gimp compat mode)
 
     passthru("makensis", {args:args, env: env}, chain);
