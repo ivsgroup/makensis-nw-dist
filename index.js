@@ -18,22 +18,22 @@ module.exports = function(root_path, skin, chain){
 
     var args = ["/NOCD", "/V4", spPath];
 
-    args.push('-DPACKAGE_VERSION=' + pack.version);
-    args.push('-DPACKAGE_VERSION_CLEAN=0.0.0.0');
-    args.push('-DPACKAGE_NAME=' + pack.name);
-    args.push('-DPACKAGE_NAME_WITH_SYMBOL=' + pack.name);
-    args.push('-DCOMPANY_NAME=' + pack.company);
-    args.push('-DAPP_URL=' + pack.app_url);
-    args.push('-DROOT_PATH=' + path.resolve(root_path));
+    args.push('/DPACKAGE_VERSION=' + pack.version);
+    args.push('/DPACKAGE_VERSION_CLEAN=0.0.0.0');
+    args.push('/DPACKAGE_NAME=' + pack.name);
+    args.push('/DPACKAGE_NAME_WITH_SYMBOL=' + pack.name);
+    args.push('/DCOMPANY_NAME=' + pack.company);
+    args.push('/DAPP_URL=' + pack.app_url);
+    args.push('/DROOT_PATH=' + path.resolve(root_path));
 
     Object.keys(skin).forEach(function(key) {
         args.push('/D'+key + '=' + skin[key]);
     });
 
     if (process.env.OUTFILE) {
-        args.push('-DOUTFILE=' + process.env.OUTFILE)
+        args.push('/DOUTFILE=' + process.env.OUTFILE)
     } else {
-        args.push('-DOUTFILE=' + util.format("%s/%s-%s-Setup.exe", root_path, pack.name, pack.version)):
+        args.push('/DOUTFILE=' + util.format("%s/%s-%s-Setup.exe", root_path, pack.name, pack.version)):
     }
 
     args.push(spPath);
