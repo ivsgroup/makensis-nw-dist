@@ -18,7 +18,8 @@ module.exports = function(root_path, skin, chain){
 
 
     var args = ["/NOCD", "/V4", spPath];
-    var env = { };
+
+    var env = Object.assign({}, process.env);
 
 
     env.PACKAGE_VERSION = pack.version;
