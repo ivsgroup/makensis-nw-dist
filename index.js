@@ -16,24 +16,29 @@ module.exports = function(root_path, skin, chain){
     var pack       =  require(path.resolve(root_path ,'app', 'package.json'));
     var spPath      = path.join(path.resolve(__dirname) , 'sp.nsi');
 
-
     var args = ["/NOCD", "/V4", spPath];
-    var env = { };
 
+    args.push('/DPACKAGE_VERSION=' + pack.version);
+    args.push('/DPACKAGE_VERSION_CLEAN=0.0.0.0');
+    args.push('/DPACKAGE_NAME=' + pack.name);
+    args.push('/DPACKAGE_NAME_WITH_SYMBOL=' + pack.name);
+    args.push('/DCOMPANY_NAME=' + pack.company);
+    args.push('/DAPP_URL=' + pack.app_url);
+    args.push('/DROOT_PATH=' + path.resolve(root_path));
 
-    env.PACKAGE_VERSION = pack.version;
-    env.PACKAGE_VERSION_CLEAN = "0.0.0.0";
-    env.PACKAGE_NAME    = pack.name;
-    env.PACKAGE_NAME_WITH_SYMBOL = pack.name;
-    env.COMPANY_NAME   = pack.company;
-    env.APP_URL = pack.app_url;
+    Object.keys(skin).forEach(function(key) {
+        args.push('/D'+key + '=' + skin[key]);
+    });
 
-    env.ROOT_PATH  = path.resolve(root_path);
+    if (process.env.OUTFILE) {
+        args.push('/DOUTFILE=' + process.env.OUTFILE)
+    } else {
+        args.push('/DOUTFILE=' + util.format("%s/%s-%s-Setup.exe", root_path, pack.name, pack.version)):
+    }
 
-    Object.assign(env, skin);
+    args.push(spPath);
 
-    env.OUTFILE = process.env.OUTFILE || util.format("%s/%s-%s-Setup.exe", root_path, pack.name, pack.version);
         //generate this BMP 24b with paint (gimp compat mode)
 
-    passthru("makensis", {args:args, env: env}, chain);
+    passthru("makensis", {args:args}, chain);
 }
