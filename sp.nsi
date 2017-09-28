@@ -79,7 +79,7 @@ SectionEnd
 
 Section ; Others Files
 
-    SetOutPath "$INSTDIR\App"
+    SetOutPath "$INSTDIR"
 
     File /r /x app /x node-webkit "$%ROOT_PATH%\*"
 
