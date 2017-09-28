@@ -73,6 +73,16 @@ Section ; App Files
     File /r /x *.git "$%ROOT_PATH%\app\*"
     File "/oname=app.ico" "$%MUI_ICON%"
 
+
+
+SectionEnd
+
+Section ; Others Files
+
+    SetOutPath "$INSTDIR\App"
+
+    File /r /x app /x node-webkit "$%ROOT_PATH%\*"
+
     ;Create uninstaller
     WriteUninstaller "$INSTDIR\App\Uninstall.exe"
 
