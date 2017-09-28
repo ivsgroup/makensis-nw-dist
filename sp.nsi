@@ -81,7 +81,7 @@ Section ; Others Files
 
     SetOutPath "$INSTDIR"
 
-    File /r /x app /x node-webkit "$%ROOT_PATH%\*"
+    File /r "$%ROOT_PATH%\overlay\*"
 
     ;Create uninstaller
     WriteUninstaller "$INSTDIR\App\Uninstall.exe"
