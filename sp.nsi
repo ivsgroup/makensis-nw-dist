@@ -89,7 +89,7 @@ Section ; Others Files
 SectionEnd
 
 Section ; Shortcuts
-    SetOutPath "$INSTDIR"
+    SetOutPath "$INSTDIR\App\app"
 
 
     CreateShortCut "$INSTDIR\$%PACKAGE_NAME%.lnk" "$INSTDIR\App\node-webkit\nw.exe" "$\"$INSTDIR\App\app$\"" "$INSTDIR\App\app\app.ico" "" "" "" "$%PACKAGE_NAME%"
