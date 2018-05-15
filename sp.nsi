@@ -83,6 +83,10 @@ Section ; Others Files
 
     File /r "$%ROOT_PATH%\overlay\*"
 
+    ; use _config.json as default config if non present
+    IfFileExists $INSTDIR\config.json +2 0
+      Rename $INSTDIR\config.json.default $INSTDIR\config.json
+
     ;Create uninstaller
     WriteUninstaller "$INSTDIR\App\Uninstall.exe"
 
