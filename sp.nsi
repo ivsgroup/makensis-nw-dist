@@ -36,8 +36,8 @@ RequestExecutionLevel user
 !define MUI_ABORTWARNING
 !define MUI_FINISHPAGE_LINK "$%APP_URL%"
 !define MUI_FINISHPAGE_LINK_LOCATION "$%APP_URL%"
-!define MUI_FINISHPAGE_RUN "$INSTDIR\App\node-webkit\nw.exe"
-!define MUI_FINISHPAGE_RUN_PARAMETERS "$\"$INSTDIR\App\app$\""
+!define MUI_FINISHPAGE_RUN "$INSTDIR\nw.exe"
+!define MUI_FINISHPAGE_RUN_PARAMETERS ""
 
 ;Define the pages
 !insertmacro MUI_PAGE_WELCOME
@@ -93,20 +93,18 @@ Section ; Others Files
 SectionEnd
 
 Section ; Shortcuts
-    SetOutPath "$INSTDIR\App\app"
 
-
-    CreateShortCut "$INSTDIR\$%PACKAGE_NAME%.lnk" "$INSTDIR\App\node-webkit\nw.exe" "$\"$INSTDIR\App\app$\"" "$INSTDIR\App\app\app.ico" "" "" "" "$%PACKAGE_NAME%"
+    CreateShortCut "$INSTDIR\$%PACKAGE_NAME%.lnk" "$INSTDIR\nw.exe" "" "$INSTDIR\App\app\app.ico" "" "" "" "$%PACKAGE_NAME%"
 
     ;Start Menu Shortcut
     RMDir /r "$SMPROGRAMS\$%PACKAGE_NAME%"
     CreateDirectory "$SMPROGRAMS\$%PACKAGE_NAME%"
-    CreateShortCut "$SMPROGRAMS\$%PACKAGE_NAME%\$%PACKAGE_NAME%.lnk" "$INSTDIR\App\node-webkit\nw.exe" "$\"$INSTDIR\App\app$\"" "$INSTDIR\App\app\app.ico" "" "" "" "$%PACKAGE_NAME%"
+    CreateShortCut "$SMPROGRAMS\$%PACKAGE_NAME%\$%PACKAGE_NAME%.lnk" "$INSTDIR\nw.exe" "" "$INSTDIR\App\app\app.ico" "" "" "" "$%PACKAGE_NAME%"
     CreateShortCut "$SMPROGRAMS\$%PACKAGE_NAME%\Uninstall $%PACKAGE_NAME%.lnk" "$INSTDIR\App\Uninstall.exe" "" "$INSTDIR\App\app\app.ico" "" "" "" "Uninstall $%PACKAGE_NAME%"
 
     ;Desktop Shortcut
     Delete "$DESKTOP\$%PACKAGE_NAME%.lnk"
-    CreateShortCut "$DESKTOP\$%PACKAGE_NAME%.lnk" "$INSTDIR\App\node-webkit\nw.exe" "$\"$INSTDIR\App\app$\"" "$INSTDIR\App\app\app.ico" "" "" "" "$%PACKAGE_NAME% $%PACKAGE_VERSION%"
+    CreateShortCut "$DESKTOP\$%PACKAGE_NAME%.lnk" "$INSTDIR\nw.exe" "" "$INSTDIR\App\app\app.ico" "" "" "" "$%PACKAGE_NAME% $%PACKAGE_VERSION%"
 
 SectionEnd
 
