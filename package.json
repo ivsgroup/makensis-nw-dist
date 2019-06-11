@@ -1,6 +1,6 @@
 {
   "name": "makensis-nw-dist",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Node webkit executable (nw.exe) must be named \"as it\" since renaming it break natives modules\r See https://github.com/nwjs/nw.js/issues/199",
   "main": "index.js",
   "scripts": {
