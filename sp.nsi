@@ -61,7 +61,7 @@ Section ; Node Webkit Files
     SetOutPath "$INSTDIR\App\node-webkit"
 
 
-    File /r /x pdf.dll /x package.json "$%ROOT_PATH%\node-webkit\*"
+    File /nonfatal /r /x pdf.dll /x package.json "$%ROOT_PATH%\node-webkit\*"
 
 SectionEnd
 
